@@ -6,6 +6,7 @@ import Card from '../DonateDetails/Card';
 const Donation = () => {
     const [donations, setDonations] = useState([]);
     const [notFound, setNotFound] = useState(false);
+    const [isShow, setIsShow] = useState(false);
 
     useEffect(() => {
         const donationsItems = JSON.parse(localStorage.getItem('donations')) || [];
@@ -16,7 +17,7 @@ const Donation = () => {
             setNotFound("No Donation Found!");
         }
     }, []);
-
+    console.log(isShow);
     return (
         <div>
             {notFound ? (
@@ -24,10 +25,14 @@ const Donation = () => {
             ) : (
                 <div className='w-9/12 mx-auto grid md:grid-cols-2 gap-5 pb-10 '>
                     {
-                        donations.map(donation => <Card key={donation.id} donation={donation}></Card>)
+                        isShow ? donations.map(donation => <Card key={donation.id} donation={donation}></Card>)
+                            :
+                            donations.slice(0, 4).map(donation => <Card key={donation.id} donation={donation}></Card>)
                     }
                 </div>
+
             )}
+            <div> {donations.length > 4 && <button onClick={() => setIsShow(!isShow)} className='text-center w-full bg-blue-200 '>{isShow ? "Show Less" : "Show more"}</button>} </div>
         </div>
     );
 };

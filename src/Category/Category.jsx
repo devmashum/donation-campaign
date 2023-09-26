@@ -7,12 +7,12 @@ const Category = ({ category }) => {
     const cardStyle = {
         backgroundColor: card_bg,
 
-        /* Add other card styles as needed */
+
     };
 
     const categoryStyle = {
         backgroundColor: category_bg,
-        /* Add other category styles as needed */
+
     };
 
 
