@@ -5,49 +5,25 @@ import swal from "sweetalert";
 
 const DonateDetails = () => {
     const categories = useLoaderData();
-    const [category, setCategory] = useState(null); // Initialize category with null
+    const [category, setCategory] = useState(null);
     const { id } = useParams();
 
     useEffect(() => {
-        // Use parseInt to convert id to a number, assuming id is a number
-        const categoryId = parseInt(id);
 
-        // Use optional chaining to safely access properties
+        const categoryId = parseInt(id);
         const findCategory = categories?.find((category) => category.id === categoryId);
 
         setCategory(findCategory);
     }, [id, categories]);
 
-    // const handleAddDonation = () => {
-    //     const addedDonationArray = [];
-    //     const donationsItems = JSON.parse(localStorage.getItem('donations'));
 
-    //     if (!donationsItems) {
-    //         addedDonationArray.push(category);
-    //         localStorage.setItem('donations', JSON.stringify(addedDonationArray));
-
-    //         swal("Good job!", "You clicked the button!", "success");
-    //     }
-    //     else {
-    //         const isExist = donationsItems.find((category) => category.id === id);
-
-    //         if (!isExist) {
-    //             addedDonationArray.push(...donationsItems, category);
-
-    //             localStorage.setItem('donations', JSON.stringify(addedDonationArray));
-    //             swal("Good job!", "You clicked the button!", "success");
-    //         } else {
-    //             swal("Good job!", "You clicked the button!", "error");
-    //         }
-
-
-    //     }
-    // };
     const handleAddDonation = () => {
         if (category) {
             const donationsItems = JSON.parse(localStorage.getItem('donations')) || [];
 
+
             const isExist = donationsItems.find((item) => item.id === category.id);
+
 
             if (!isExist) {
                 donationsItems.push(category);

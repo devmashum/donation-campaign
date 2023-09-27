@@ -31,17 +31,17 @@ const Card = ({ donation }) => {
             <div className='rounded-2xl'>
 
                 <div className='flex justify-center  '>
-                    <div className=''><img className=' rounded-l-xl mb-2 ' src={picture} alt="" /></div>
+                    <div><img className='rounded-l-xl h-40  ' src={picture} alt="" /></div>
 
-                    <div style={cardStyle} className='w-80% rounded-r-xl mb-2 '>
+                    <div style={cardStyle} className='rounded-r-xl  '>
 
-                        <button className=' text-lg ml-2 rounded p-1 mt-5' style={buttonBg} >{category_name}
+                        <button className=' text-sm ml-2 rounded p-1 mt-5' style={buttonBg} >{category_name}
                         </button>
 
                         <h3 className=' text-xl  ml-2'   >{title}</h3>
 
-                        <h3 className=' text-lg ml-2 ' style={titleColor}>${price}</h3>
-                        <button style={buttonBg} className=' text-bse ml-2 text-white rounded p-1'> View Details</button>
+                        <h3 className=' text-base ml-2 ' style={titleColor}>${price}</h3>
+                        <button style={buttonBg} className=' ml-2 text-white rounded p-1'> View Details</button>
 
                     </div>
                 </div>
