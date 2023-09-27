@@ -34,13 +34,13 @@ const Statistics = () => {
                         data={data}
                         cx="50%"
                         cy="40%"
-                        innerRadius={70}
-                        outerRadius={90}
+                        innerRadius={0}
+                        outerRadius={150}
                         fill="#8884d8"
-                        paddingAngle={2}
+                        paddingAngle={0}
                         dataKey="value"
                         labelLine={false} // Disable label lines
-                        startAngle={90} // Start the chart from the top
+                        startAngle={0} // Start the chart from the top
                     >
                         {data.map((entry, index) => (
                             <Cell key={`cell-${index}`} fill={COLORS[index]} />
