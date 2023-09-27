@@ -1,38 +1,57 @@
 import React from 'react';
 
 const Card = ({ donation }) => {
-    const { picture, title, category_name, id, price, text_button_bg, category_bg, card_bg } = donation;
+    const { picture, title, category_name, id, price, text_button_bg, text_button_color, category_bg, card_bg, title_color } = donation;
+
+    console.log(donation);
 
     const cardStyle = {
         backgroundColor: card_bg,
+        textColor: title_color
 
-        /* Add other card styles as needed */
+
     };
 
     const categoryStyle = {
         backgroundColor: category_bg,
-        /* Add other category styles as needed */
+
     };
+    const buttonBg = {
+        backgroundColor: text_button_bg,
+        color: text_button_color
+
+    };
+    const titleColor = {
+        color: text_button_bg
+    }
 
     return (
         <div className=''>
-            <div className='flex'>
-                <div className='w-[50%]'><img className='w-full h-40 ' src={picture} alt="" />
-                </div>
-                <div style={cardStyle} className='bg-blue-100 w-[50%] '>
-                    <div className='w-full  '>
-                        <p style={categoryStyle} className=' text-xs ml-2 mt-2'>{category_name}</p>
-                        <h3 className=' text-sm font-bold ml-2 my-5'>{title}</h3>
-                        <p className=' text-sm ml-2'>${price}</p>
+
+            <div className='rounded-2xl'>
+
+                <div className='flex justify-center  '>
+                    <div className=''><img className=' rounded-l-xl mb-2 ' src={picture} alt="" /></div>
+
+                    <div style={cardStyle} className='w-80% rounded-r-xl mb-2 '>
+
+                        <button className=' text-lg ml-2 rounded p-1 mt-5' style={buttonBg} >{category_name}
+                        </button>
+
+                        <h3 className=' text-xl  ml-2'   >{title}</h3>
+
+                        <h3 className=' text-lg ml-2 ' style={titleColor}>${price}</h3>
+                        <button style={buttonBg} className=' text-bse ml-2 text-white rounded p-1'> View Details</button>
+
                     </div>
-
                 </div>
+            </div >
 
 
-            </div>
-            <div className='w-full text-center bg-blue-500'><button className='  ml-2'>View Details</button>
-            </div>
-        </div>
+
+
+
+        </div >
 
     );
 };
